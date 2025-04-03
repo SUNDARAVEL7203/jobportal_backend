@@ -25,7 +25,7 @@ app.use(cookieParser())
 
 const allowedOrigins = [
     'http://localhost:5173',
-    'https://jobportal-frontend-psi.vercel.app'
+    'https://jobportal-frontend-6x9ucndor-sundaravels-projects-633e20b1.vercel.app/'
   ];
   
   app.use(cors({
