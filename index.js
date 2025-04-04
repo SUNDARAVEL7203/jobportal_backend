@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin:"https://jobportal-frontend-psi.vercel.app", 
+    origin:"jobportal-frontend-4jqriwx1a-sundaravels-projects-633e20b1.vercel.app", 
     credentials: true
 }));
 
