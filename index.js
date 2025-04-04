@@ -27,10 +27,10 @@ app.use(cookieParser());
 // CORS setup
 
 
-app.use(cors({
-    origin:"jobportal-frontend-4jqriwx1a-sundaravels-projects-633e20b1.vercel.app", 
-    credentials: true
-}));
+const corsOptions = {
+    origin:'http://localhost:5173',
+    credentials:true
+}
 
 // Routes
 app.use("/api/v1/user", userRoute);
