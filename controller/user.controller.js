@@ -126,6 +126,8 @@ export const login = async (req, res) => {
       message: "Internal server error",
       success: false,
     }); // Log error for debugging
+  } finally {
+    console.timeEnd('loginProcess');  // End the overall login process time
   }
 };
 
