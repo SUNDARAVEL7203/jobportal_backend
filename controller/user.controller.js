@@ -121,7 +121,11 @@ export const login = async (req, res) => {
         success: true,
       });
   } catch (error) {
-    console.log(error); // Log error for debugging
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal server error",
+      success: false,
+    }); // Log error for debugging
   }
 };
 
