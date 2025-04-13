@@ -122,13 +122,8 @@ export const login = async (req, res) => {
       });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({
-      message: "Internal server error",
-      success: false,
-    }); // Log error for debugging
-  } finally {
-    console.timeEnd('loginProcess');  // End the overall login process time
-  }
+   // Log error for debugging
+  } 
 };
 
 export const logout = async (req, res) => {
