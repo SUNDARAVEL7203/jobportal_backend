@@ -28,17 +28,28 @@ app.use(cookieParser());
 
 
 
-const allowedOrigins = [
-     'http://localhost:5173',
-    'https://jobportal-frontend-psi.vercel.app',
+  const PORT = process.env.PORT || 5000;
+
+
+  const allowedOrigins = [
+    "http://127.0.0.1:8080",
+    "http://localhost:5173",
+    "https://jobportal-frontend-psi.vercel.app",
+    "*"
   ];
   
- app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));// credintials true is give to send the cookies in response
-
-  const PORT = process.env.PORT || 5000;
+  app.use(cors({
+    origin: (origin, callback) => {
+      // Check if the origin is in the allowed origins list or if there's no origin (for server-to-server requests)
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // if you are using cookies
+  }));
 
 // Routes
 app.use("/api/v1/user", userRoute);
