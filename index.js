@@ -52,6 +52,8 @@ app.use(cookieParser());
     },
     credentials: true
   }));
+
+  app.options('*', cors());
 // Routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
