@@ -38,7 +38,7 @@ app.use(cookieParser());
   ];
   
   app.use(cors({
-    origin: allowedOrigins,
+    origin: "*",
     credentials: true,
   }));// credintials true is give to send the cookies in response
   
