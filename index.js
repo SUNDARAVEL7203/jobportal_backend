@@ -37,12 +37,21 @@ app.use(cookieParser());
     
   ];
   
-  app.use(cors({
-    origin: "*",
-    credentials: true,
-  }));// credintials true is give to send the cookies in response
+  // app.use(cors({
+  //   origin: "*",
+  //   credentials: true,
+  // }));// credintials true is give to send the cookies in response
   
-
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  }));
 // Routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
